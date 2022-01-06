@@ -1,8 +1,13 @@
-fetch('https://icanhazdadjoke.com/slack')
-    .then(data => data.json())
-    .then(jokeData => {
-        const jokeText = jokeData.attachments[0].text;
-        const jokeElement = document.getElementById('jokeElement');
+replaceText(document.body)
 
-        jokeElement.innerHTML = jokeText;
-    })
+function replaceText(element) {
+  if (element.hasChildNodes()) {
+    element.childNodes.forEach(replaceText)
+  } else if (element.nodeType === Text.TEXT_NODE) {
+    if (element.textContent.match(/coronavirus/gi)) {
+      const newElement = document.createElement('span')
+      newElement.innerHTML = element.textContent.replace(/(coronavirus)/gi, '<span class="rainbow">$1</span>')
+      element.replaceWith(newElement)
+    }
+  }
+}

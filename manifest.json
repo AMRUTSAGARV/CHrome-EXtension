@@ -1,12 +1,12 @@
 {
-    "name": "Dad Jokes",
-    "version": "0.0.1",
     "manifest_version": 2,
-    "browser_action": {
-        "default_popup": "popup.html",
-        "default_icon": "logo(1).png"
-    },
-    "icons": {
-        "128": "logo(1).png"
-    }
-}
+    "name": "Coronavirus Immunity",
+    "version": "0.1.0",
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["script.js"],
+        "css": ["style.css"]
+      }
+    ]
+  }
